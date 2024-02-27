@@ -1,6 +1,6 @@
 class Borda:
   """
-  Classe pour implémenter la méthode de Borda.
+  Classe pour implementer la methode de Borda.
   https://fr.wikipedia.org/wiki/M%C3%A9thode_Borda
 
   Args:
@@ -30,7 +30,7 @@ class Borda:
 
   def get_winner(self):
     """
-    Retourne le projet avec le score de Borda le plus élevé.
+    Retourne le projet avec le score de Borda le plus eleve.
 
     Returns:
       Le projet gagnant.
@@ -45,6 +45,20 @@ class Borda:
 
     return winner
 
+def borda_score(votes):
+  scores = {}
+  positions = {}
+  for i, vote in enumerate(votes):
+    for j, project in enumerate(vote):
+      if project not in scores:
+        scores[project] = 0
+        positions[project] = {}
+      scores[project] += len(vote) - j - 1
+      if j not in positions[project]:
+        positions[project][j+1] = 0
+      positions[project][j+1] += 1
+    return scores, positions
+
 # Place aux votes
 projects = ["A", "B", "C", "D", "E", "F", "G", "H", "I"]
 
@@ -52,12 +66,12 @@ projects_name = {
   "A": "Accidents routiers en France",
   "B": "Blood cells classification",
   "C": "Classification de produits e-commerce Rakuten",
-  "D": "Emission de CO2 par les véhicules",
-  "E": "Prévision météo en Australie",
+  "D": "Emission de CO2 par les vehicules",
+  "E": "Prevision meteo en Australie",
   "F": "Reconnaissance de champignons",
   "G": "Reconnaissance de plantes",
   "H": "Supply Chain - Satisfaction des clients",
-  "I": "Temps de Réponse de la Brigade des Pompiers de Londres",
+  "I": "Temps de Reponse de la Brigade des Pompiers de Londres",
 }
 
 borda = Borda(projects)
@@ -74,14 +88,22 @@ borda.calculate_scores(votes)
 winner = borda.get_winner()
 
 print(f"""
-Rires et roulements de tambour ... Le suspense est à son comble ...
-Après un vote palpitant, c'est avec une immense joie que nous vous annonçons le grand gagnant :
+Rires et roulements de tambour ... Le suspense est a son comble ...
+Apres un vote palpitant, c'est avec une immense joie que nous vous annoncons le grand gagnant :
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 LE PROJET {winner} : {projects_name[winner]} !!!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Applaudissements nourris et cris de joie s'il vous plaît !
+Applaudissements nourris et cris de joie s'il vous plait !
 N'oubliez pas, il n'y a pas de perdants aujourd'hui, seulement des participants formidables !
-Merci à tous d'avoir participé à ce vote !
+Merci a tous d'avoir participe a ce vote !
 """)
+
+# Affichage des rangs
+scores, positions = borda_score(votes)
+
+for project, score in scores.items():
+  print(f"Projet {project} : {projects_name[project]}")
+  for position, nb_votes in positions[project].items():
+    print(f"  Position => {position}\n")
