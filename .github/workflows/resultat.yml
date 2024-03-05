@@ -4,7 +4,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
     - uses: actions/checkout@v2
     - name: Mis a jour du resultat du vote Borda
       run: python ${{ github.workspace }}/vote_borda.py > ${{ github.workspace }}/resultat_vote.txt
+
+    - name: Ajouter le fichier resultat_vote.txt
+      run: git add ${{ github.workspace }}/resultat_vote.txt
+
+    - name: Push les modifications
+      run: git push origin master
