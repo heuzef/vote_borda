@@ -14,8 +14,10 @@ jobs:
     - name: Ajouter le fichier resultat_vote.txt
       run: git add ${{ github.workspace }}/resultat_vote.txt
       
-    - name: Committer les modifications
-      run: git commit -m "MAJ du resultat du vote"
-
-    - name: Push les modifications
-      run: git push origin main
+    - name: Commit and Push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add ${{ github.workspace }}/resultat_vote.txt
+        git commit -m "Actualisation du resultat du vote Borda"
+        git push origin main
