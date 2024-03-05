@@ -1,0 +1,10 @@
+name: Mis a jour du resultat du vote Borda
+on:
+  - push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Mis a jour du resultat du vote Borda
+      run: python ${{ github.workspace }}/vote_borda.py > ${{ github.workspace }}/resultat_vote.txt
