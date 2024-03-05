@@ -15,4 +15,4 @@ jobs:
       run: git add ${{ github.workspace }}/resultat_vote.txt
 
     - name: Push les modifications
-      run: git push origin master
+      run: git push origin main
