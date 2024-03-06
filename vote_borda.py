@@ -77,9 +77,9 @@ projects_name = {
 borda = Borda(projects)
 
 votes = [
-  ["F", "B", "G", "D", "I", "E", "A", "H", "C"], # Heuzef - @heuzef
-  ["A", "B", "C", "D", "E", "F", "G", "H", "I"], # Yvan - @.......
-  ["A", "B", "C", "D", "E", "F", "G", "H", "I"], # Viktoriia - @.......
+  ["F", "B", "G", "D", "I", "A", "E", "H", "C"], # Heuzef - @heuzef
+  ["A", "B", "C", "D", "E", "F", "G", "H", "I"], # Yvan - @YvanRLD
+  ["A", "B", "C", "D", "E", "F", "G", "H", "I"], # Viktoriia - @SavelevaV
   ["A", "B", "C", "D", "E", "F", "G", "H", "I"], # Florent - @FConstantMovework
 ]
 
