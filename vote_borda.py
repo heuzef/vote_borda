@@ -80,7 +80,7 @@ votes = [
   ["F", "B", "G", "D", "I", "A", "E", "H", "C"], # Heuzef - @heuzef
   ["A", "B", "C", "D", "E", "F", "G", "H", "I"], # Yvan - @YvanRLD
   ["A", "B", "C", "D", "E", "F", "G", "H", "I"], # Viktoriia - @SavelevaV
-  ["A", "B", "C", "D", "E", "F", "G", "H", "I"], # Florent - @FConstantMovework
+  ["F", "B", "C", "G", "E", "A", "D", "I", "H"], # Florent - @FConstantMovework
 ]
 
 borda.calculate_scores(votes)
