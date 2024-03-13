@@ -78,7 +78,7 @@ borda = Borda(projects)
 
 votes = [
   ["F", "B", "G", "D", "C", "I", "A", "E", "H"], # Heuzef - @heuzef
-  ["A", "B", "C", "D", "E", "F", "G", "H", "I"], # Yvan - @YvanRLD
+  ["F", "B", "G", "D", "C", "I", "A", "E", "H"], # Yvan - @YvanRLD
   ["D", "B", "A", "F", "G", "E", "C", "H", "I"], # Viktoriia - @SavelevaV
   ["F", "B", "C", "G", "E", "A", "D", "I", "H"], # Florent - @FConstantMovework
 ]
